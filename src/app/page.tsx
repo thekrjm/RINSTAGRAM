@@ -8,7 +8,6 @@ import { redirect } from 'next/navigation';
 export default async function Home() {
   const session = await getServerSession(authOptions);
   const user = session?.user;
-
   if (!user) redirect('/auth/signin');
   return (
     <section className='flex flex-col md:flex-row w-full max-w-[850px] p-4'>

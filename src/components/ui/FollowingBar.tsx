@@ -15,15 +15,12 @@ const FollowingBar = () => {
     ...data?.following,
     ...data?.following,
     ...data?.following,
-    ...data?.following,
-    ...data?.following,
   ];
-  // const users = undefined;
 
   return (
-    <section className='w-full flex justify-center items-center p-4 shadow-sm shadow-neutral-300 mb-4 rounded-lg min-h-[90px] overflow-x-auto'>
+    <section className='w-full flex justify-center items-center p-4 shadow-sm shadow-neutral-300 mb-4 rounded-lg min-h-[90px] overflow-x-auto relative z-0'>
       {isLoading ? (
-        <PropagateLoader size={8} color='red' />
+        <PropagateLoader size={8} color='skyblue' />
       ) : (
         (!users || users.length === 0) && <p>{`You don't have fallowings`}</p>
       )}
@@ -31,6 +28,7 @@ const FollowingBar = () => {
         <ScrollableBar>
           {users.map(({ username, image }) => (
             <Link
+              key={username}
               className='w-20 flex flex-col items-center'
               href={`/user/${username}`}
             >

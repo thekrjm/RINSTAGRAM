@@ -1,6 +1,6 @@
 'use client';
 import { HomeIcon } from './ui/icons/HomeIcon';
-import { HomeFillIcon } from './ui/icons/HomFillIcon';
+import { HomeFillIcon } from './ui/icons/HomeFillIcon';
 import { SearchIcon } from './ui/icons/SearchIcon';
 import { SearchFillIcon } from './ui/icons/SearchFillIcon';
 import { NewIcon } from './ui/icons/NewIcon';
@@ -34,9 +34,9 @@ const Navbar = () => {
   const { data: session } = useSession();
   const user = session?.user;
   return (
-    <div className='flex justify-between items-center'>
+    <div className='flex justify-between items-center bg-white '>
       <Link href='/'>
-        <h1 className='text-3xl font-bold'>Rinstagram</h1>
+        <span className='text-3xl font-bold'>Rinstagram</span>
       </Link>
       <nav>
         <ul className='flex gap-4 items-center p-4'>
