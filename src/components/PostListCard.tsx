@@ -3,13 +3,13 @@ import { SimplePost } from '@/model/post';
 import React, { useState } from 'react';
 import Avatar from './Avatar';
 import Image from 'next/image';
-import HeartIcon from './icons/HeartIcon';
-import BookmarkIcon from './icons/BookmarkIcon';
-import CommentForm from '../CommentForm';
-import ActionBar from '../ActionBar';
-import ModalPotal from './ModalPotal';
+import HeartIcon from './ui/icons/HeartIcon';
+import BookmarkIcon from './ui/icons/BookmarkIcon';
+import CommentForm from './CommentForm';
+import ActionBar from './ActionBar';
+import ModalPotal from './ui/ModalPortal';
 import PostModal from './PostModal';
-import PostDetail from '../PostDetail';
+import PostDetail from './PostDetail';
 import PostUserAvatar from './PostUserAvatar';
 
 type Props = {

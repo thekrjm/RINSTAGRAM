@@ -8,7 +8,7 @@ const FadeLoader = dynamic(
   },
 );
 
-const FadeSpinner = ({ color = 'skyblue' }: { color: string }) => {
+const FadeSpinner = ({ color = 'skyblue' }: { color?: string }) => {
   return <FadeLoader color={color} />;
 };
 

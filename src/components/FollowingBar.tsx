@@ -5,7 +5,7 @@ import useSWR from 'swr';
 import { PropagateLoader } from 'react-spinners';
 import Link from 'next/link';
 import Avatar from './Avatar';
-import { ScrollableBar } from './ScrollableBar';
+import { ScrollableBar } from './ui/ScrollableBar';
 
 const FollowingBar = () => {
   const { data, isLoading, error } = useSWR<DetailUser>('/api/me');

@@ -2,7 +2,7 @@
 import { SimplePost } from '@/model/post';
 import useSWR from 'swr';
 import PostListCard from './PostListCard';
-import FadeSpinner from './FadeSpinner';
+import FadeSpinner from './ui/FadeSpinner';
 
 const PostList = () => {
   const { data: posts, isLoading, error } = useSWR<SimplePost[]>('/api/posts');

@@ -3,10 +3,10 @@ import Image from 'next/image';
 import React from 'react';
 import useSWR from 'swr';
 import ActionBar from './ActionBar';
-import PostUserAvatar from './ui/PostUserAvatar';
+import PostUserAvatar from './PostUserAvatar';
 import user from '../../sanity-studio/schemaTypes/user';
 import CommentForm from './CommentForm';
-import Avatar from './ui/Avatar';
+import Avatar from './Avatar';
 
 type Props = {
   post: SimplePost;

@@ -9,7 +9,7 @@ import ColorButton from './ui/ColorButton';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSession, signIn, signOut } from 'next-auth/react';
-import Avatar from './ui/Avatar';
+import Avatar from './Avatar';
 
 const menu = [
   {
