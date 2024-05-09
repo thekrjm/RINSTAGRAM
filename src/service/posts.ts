@@ -13,6 +13,14 @@ const simplePostProjection = `
     "createdAt":_createdAt
 `;
 
+function mapPosts(posts: SimplePost[]) {
+  return posts.map((post: SimplePost) => ({
+    ...post,
+    likes: post.likes ?? [],
+    image: urlFor(post.image),
+  }));
+}
+
 export async function getFollowingPostsOf(username: string) {
   return client
     .fetch(
@@ -22,12 +30,7 @@ export async function getFollowingPostsOf(username: string) {
      |order(_createdAt desc){${simplePostProjection}}
      `,
     )
-    .then((posts) =>
-      posts.map((post: SimplePost) => ({
-        ...post,
-        image: urlFor(post.image),
-      })),
-    );
+    .then(mapPosts);
 }
 
 export async function getPost(id: string) {
@@ -58,12 +61,7 @@ export async function getPostsOf(username: string) {
     }
   `,
     )
-    .then((posts) =>
-      posts.map((post: SimplePost) => ({
-        ...post,
-        image: urlFor(post.image),
-      })),
-    );
+    .then(mapPosts);
 }
 
 export async function getLikedPostsOf(username: string) {
@@ -76,12 +74,7 @@ export async function getLikedPostsOf(username: string) {
     }
   `,
     )
-    .then((posts) =>
-      posts.map((post: SimplePost) => ({
-        ...post,
-        image: urlFor(post.image),
-      })),
-    );
+    .then(mapPosts);
 }
 
 export async function getSavedPostsOf(username: string) {
@@ -94,10 +87,25 @@ export async function getSavedPostsOf(username: string) {
     }
   `,
     )
-    .then((posts) =>
-      posts.map((post: SimplePost) => ({
-        ...post,
-        image: urlFor(post.image),
-      })),
-    );
+    .then((posts) => mapPosts(posts));
+}
+
+export async function likePost(postId: string, userId: string) {
+  return client
+    .patch(postId) //
+    .setIfMissing({ likes: [] })
+    .append('likes', [
+      {
+        _ref: userId,
+        _type: 'reference',
+      },
+    ])
+    .commit({ autoGenerateArrayKeys: true });
+}
+
+export async function dislikePost(postId: string, userId: string) {
+  return client
+    .patch(postId)
+    .unset([`likes[_ref=="${userId}"]`])
+    .commit();
 }

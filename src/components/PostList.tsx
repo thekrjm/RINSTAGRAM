@@ -3,9 +3,10 @@ import { SimplePost } from '@/model/post';
 import useSWR from 'swr';
 import PostListCard from './PostListCard';
 import FadeSpinner from './ui/FadeSpinner';
+import usePosts from '@/hooks/posts';
 
 const PostList = () => {
-  const { data: posts, isLoading, error } = useSWR<SimplePost[]>('/api/posts');
+  const { posts, isLoading } = usePosts();
 
   return (
     <section>

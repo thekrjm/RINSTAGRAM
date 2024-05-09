@@ -1,10 +1,7 @@
 'use client';
 import { SimplePost } from '@/model/post';
 import React, { useState } from 'react';
-import Avatar from './Avatar';
 import Image from 'next/image';
-import HeartIcon from './ui/icons/HeartIcon';
-import BookmarkIcon from './ui/icons/BookmarkIcon';
 import CommentForm from './CommentForm';
 import ActionBar from './ActionBar';
 import ModalPotal from './ui/ModalPortal';
@@ -31,18 +28,9 @@ const PostListCard = ({ post, priority = false }: Props) => {
         width={500}
         height={500}
         priority={priority}
-        onClick={() => setOpenModal(!openModal)}
+        onClick={() => setOpenModal(true)}
       />
-      <div className='flex justify-between my-2 px-4'>
-        <HeartIcon />
-        <BookmarkIcon />
-      </div>
-      <ActionBar
-        likes={likes}
-        username={username}
-        text={text}
-        createdAt={createdAt}
-      />
+      <ActionBar post={post} />
       <CommentForm />
       {openModal && (
         <ModalPotal>
