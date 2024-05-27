@@ -23,6 +23,8 @@ const SignPage = async ({ searchParams: { callbackUrl } }: Props) => {
   if (session) redirect('/');
   const providers = (await getProviders()) ?? {};
 
+  console.log('callbackUrl', providers);
+
   return (
     <section className='flex justify-center mt-24'>
       <Signin providers={providers} callbackUrl={callbackUrl ?? '/'} />

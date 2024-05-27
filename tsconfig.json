@@ -30,5 +30,5 @@
     ".next/types/**/*.ts",
     "sanity-studio/schemas/post.js"
   ],
-  "exclude": ["node_modules", "sanity"]
+  "exclude": ["node_modules", "sanity", "sanity-studio"]
 }
