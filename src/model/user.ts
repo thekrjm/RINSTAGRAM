@@ -11,7 +11,7 @@ export type SimpleUser = Pick<AuthUser, 'username' | 'image'>;
 export type HomeUser = AuthUser & {
   following: SimpleUser[];
   followers: SimpleUser[];
-  bookmarks: string;
+  bookmarks: string[];
 };
 
 export type SearchUser = AuthUser & {

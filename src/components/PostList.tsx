@@ -7,7 +7,7 @@ import usePosts from '@/hooks/posts';
 
 const PostList = () => {
   const { posts, isLoading } = usePosts();
-
+  
   return (
     <section>
       {isLoading && (

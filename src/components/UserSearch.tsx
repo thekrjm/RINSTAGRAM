@@ -15,7 +15,6 @@ const UserSearch = () => {
     isLoading,
     error,
   } = useSWR<ProfileUser[]>(`/api/search/${debouncedSearch}`);
-  console.log('data.....', users);
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();

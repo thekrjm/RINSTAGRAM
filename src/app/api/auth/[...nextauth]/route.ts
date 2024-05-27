@@ -1,7 +1,7 @@
 import GoogleProvider from 'next-auth/providers/google';
 import NextAuth from 'next-auth/next';
 import { addUser } from '@/service/user';
-import { AuthOptions, NextAuthOptions } from 'next-auth';
+import { NextAuthOptions } from 'next-auth';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -12,10 +12,6 @@ export const authOptions: NextAuthOptions = {
   ],
   pages: {
     signIn: '/auth/signin',
-    signOut: '/auth/signout',
-    error: '/auth/error', // Error code passed in query string as ?error=
-    verifyRequest: '/auth/verify-request', // (used for check email message)
-    newUser: '/auth/new-user', // New users will be directed here on first sign in (leave the property out if not of interest)
   },
   callbacks: {
     async signIn({ user: { id, email, image, name } }) {

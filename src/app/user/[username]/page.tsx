@@ -14,6 +14,7 @@ const getUser = cache(async (username: string) => getUserForProfile(username));
 
 const UserPage = async ({ params: { username } }: Props) => {
   const user = await getUser(username);
+
   if (!user) notFound();
 
   return (

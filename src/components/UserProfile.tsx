@@ -9,11 +9,15 @@ type Props = {
 
 const UserProfile = ({ user }: Props) => {
   const { image, username, name, followers, following, posts } = user;
+
   const info = [
     { title: 'posts', data: posts },
     { title: 'followers', data: followers },
     { title: 'following', data: following },
   ];
+
+  console.log('posts', posts, 'followers', followers, 'following', following);
+
   return (
     <section className='flex flex-col w-full md:flex-row items-center justify-center py-12 border-b border-neutral-300'>
       <Avatar image={image} highlight size='xlarge' />

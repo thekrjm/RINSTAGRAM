@@ -1,23 +1,19 @@
-import { FullPost, SimplePost } from '@/model/post';
+import { SimplePost } from '@/model/post';
 import Image from 'next/image';
 import React from 'react';
-import useSWR from 'swr';
 import ActionBar from './ActionBar';
 import PostUserAvatar from './PostUserAvatar';
-import user from '../../sanity-studio/schemaTypes/user';
-import CommentForm from './CommentForm';
 import Avatar from './Avatar';
+import useFullPost from '@/hooks/post';
 
 type Props = {
   post: SimplePost;
 };
 
 const PostDetail = ({ post }: Props) => {
-  const { id, userImage, username, image, createdAt, likes } = post;
-  const { data } = useSWR<FullPost>(`/api/posts/${id}`);
+  const { id, userImage, username, image } = post;
+  const { post: data, postComment } = useFullPost(id);
   const comments = data?.comments;
-  console.log('commentssss', comments);
-
   return (
     <section className='flex w-full h-full'>
       <div className='relative basis-3/5 '>
@@ -51,8 +47,7 @@ const PostDetail = ({ post }: Props) => {
               ),
             )}
         </ul>
-        <ActionBar post={post} />
-        <CommentForm />
+        <ActionBar post={post} onComment={postComment} />
       </div>
     </section>
   );

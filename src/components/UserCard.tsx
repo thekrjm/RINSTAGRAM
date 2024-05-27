@@ -20,7 +20,6 @@ const UserCard = ({
         <p className='text-black font-bold leading-4'>{username}</p>
         <p>{name}</p>
         <p className='text-sm leading-4'>
-          {' '}
           {`${followers} followers ${following} following `}{' '}
         </p>
       </div>
